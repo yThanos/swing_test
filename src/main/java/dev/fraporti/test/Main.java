@@ -8,19 +8,35 @@ import java.awt.*;
  */
 public class Main {
     public static void main(String[] args) {
-        GridFrame frame = new GridFrame(4, 6, "Grid Frame");
+        GridFrame frame = new GridFrame(6, 5, "Grid Frame");
 
-        JPanel p1 = new JPanel();
-        p1.setBackground(Color.BLUE);
-        frame.addToGrid(p1, 4, 1, 0, 0);
+        final JPanel drawer = new JPanel();
+        drawer.setBackground(Color.GRAY);
+        frame.addToGrid(drawer, 6, 1, 0, 0);
 
-        JPanel p2 = new JPanel();
-        p2.setBackground(Color.GREEN);
-        frame.addToGrid(p2, 1, 5, 1, 0);
+        final JPanel header = new JPanel();
+        header.setBackground(Color.GRAY);
+        frame.addToGrid(header, 1, 4, 1, 0);
 
-        JPanel p3 = new JPanel();
-        p3.setBackground(Color.RED);
-        frame.addToGrid(p3,3, 5, 1, 1);
+        final JPanel body = new JPanel();
+        body.setBackground(Color.DARK_GRAY);
+        frame.addToGrid(body,5, 4, 1, 1);
+
+        JPanel headerTitlePanel = new JPanel();
+
+        JLabel headerTitle = new JLabel();
+        headerTitle.setText("Example of swing application");
+        headerTitlePanel.add(headerTitle);
+
+        header.add(headerTitlePanel);
+
+        JPanel buttonsPanel = new JPanel();
+
+        buttonsPanel.add(new JButton("Botão 1"));
+        buttonsPanel.add(new JButton("Botão 2"));
+        buttonsPanel.add(new JButton("Botão 3"));
+
+        header.add(buttonsPanel);
 
         for(Component c: frame.getContentPane().getComponents()){
             System.out.println(c.getBackground().toString() + " " + c.getBounds());

@@ -86,4 +86,12 @@ public class GridFrame extends JFrame {
     public void setVisible() {
         setVisible(true);
     }
+
+    public int getTileWidth() {
+        return tileWidth;
+    }
+
+    public int getTileHeight() {
+        return tileHeight;
+    }
 }
